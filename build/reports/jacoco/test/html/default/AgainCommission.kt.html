@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AgainCommission.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AutotestCommissionVK</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">AgainCommission.kt</span></div><h1>AgainCommission.kt</h1><pre class="source lang-java linenums">import kotlin.math.roundToInt
+
+const val LIMIT_CARD_MOUNTH = 600_000_00
+const val LIMIT_CARD_DAY = 150_000_00
+const val LIMIT_VK_PAY_MONTH = 40_000_00
+const val LIMIT_VK_PAY_TRANSFER = 15_000_00
+const val TAX_FREE_CARD_MAX = 75_000_00
+const val TAX_FREE_CARD_MIN = 300_00
+const val COMMISSION_MAESTRO_MASTERCARD = 0.006
+const val COMMISSION_VISA_MIR = 0.0075
+
+
+fun main() {
+<span class="nc" id="L14">    val typeOfCard = &quot;Mastercard&quot;</span>
+<span class="nc" id="L15">    val amountMonth = 0</span>
+<span class="nc" id="L16">    val amountPay = 1000_00</span>
+
+<span class="nc" id="L18">    val checkOfTransfer = check(typeOfCard, amountMonth, amountPay)</span>
+<span class="nc bnc" id="L19" title="All 2 branches missed.">    if (checkOfTransfer == true) {</span>
+<span class="nc" id="L20">        separation(typeOfCard, amountMonth, amountPay)</span>
+    } else {
+<span class="nc" id="L22">        println(&quot;Р’Р°С€ Р»РёРјРёС‚ РЅР° РїРµСЂРµРІРѕРґ РёСЃС‡РµСЂРїР°РЅ&quot;)</span>
+    }
+
+<span class="nc" id="L25">}</span>
+
+fun check(typeOfCard: String, amountMonth: Int, amountPay: Int): Boolean {
+<span class="pc bpc" id="L28" title="1 of 3 branches missed.">    return when (typeOfCard) {</span>
+<span class="fc bfc" id="L29" title="All 4 branches covered.">        &quot;VK Pay&quot; -&gt; if (amountMonth &lt;= LIMIT_VK_PAY_MONTH &amp;&amp; amountPay &lt;= LIMIT_VK_PAY_TRANSFER) true else false</span>
+<span class="pc bfc" id="L30" title="All 4 branches covered.">        &quot;Mastercard&quot;, &quot;Maestro&quot;, &quot;Visa&quot;, &quot;Mir&quot; -&gt; if (amountMonth + amountPay &lt;= LIMIT_CARD_MOUNTH &amp;&amp; amountPay &lt;= LIMIT_CARD_DAY) true else false</span>
+<span class="nc" id="L31">        else -&gt; error(&quot;РўР°РєРѕР№ РїР»Р°С‚РµР¶РЅРѕР№ СЃРёСЃС‚РµРјС‹ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚&quot;)</span>
+    }
+}
+
+fun calculation(typeOfCard: String, amountMonth: Int, amountPay: Int): Int {
+<span class="pc bpc" id="L36" title="1 of 4 branches missed.">    return when (typeOfCard) {</span>
+<span class="fc" id="L37">        &quot;VK Pay&quot; -&gt; 0</span>
+<span class="fc bfc" id="L38" title="All 4 branches covered.">        &quot;Mastercard&quot;, &quot;Maestro&quot; -&gt; if (amountMonth + amountPay &lt;= TAX_FREE_CARD_MAX &amp;&amp; amountMonth + amountPay &gt;= TAX_FREE_CARD_MIN) 0 else (amountPay * COMMISSION_MAESTRO_MASTERCARD + 20_00).roundToInt()</span>
+<span class="pc bfc" id="L39" title="All 2 branches covered.">        &quot;Visa&quot;, &quot;Mir&quot; -&gt; if (amountPay * COMMISSION_VISA_MIR &gt; 35_00.0) (amountPay * COMMISSION_VISA_MIR).roundToInt() else 35_00</span>
+<span class="nc" id="L40">        else -&gt; error(&quot;РўР°РєРѕР№ РїР»Р°С‚РµР¶РЅРѕР№ СЃРёСЃС‚РµРјС‹ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚&quot;)</span>
+    }
+}
+
+fun separation(typeOfCard: String, amountMonth: Int, amountPay: Int) {
+<span class="nc" id="L45">    val commission = calculation(typeOfCard, amountMonth, amountPay)</span>
+<span class="nc" id="L46">    val commissionRuble = commission / 100</span>
+<span class="nc" id="L47">    val commissionPenny = commission % 100</span>
+<span class="nc" id="L48">    println(&quot;РљРѕРјРёСЃСЃРёСЏ Р·Р° РїРµСЂРµРІРѕРґ СЃРѕСЃС‚Р°РІР»СЏРµС‚  $commissionRuble СЂСѓР±Р»РµР№ $commissionPenny РєРѕРїРµРµРє&quot;)</span>
+<span class="nc" id="L49">}</span>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

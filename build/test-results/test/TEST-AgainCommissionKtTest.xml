@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AgainCommissionKtTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2022-04-03T18:11:37" hostname="DESKTOP-TPQFU3E" time="0.031">
+  <properties/>
+  <testcase name="check_VKPayOKTransferLimitOnMonth" classname="AgainCommissionKtTest" time="0.017"/>
+  <testcase name="calculation_MastercardMaestroCommissionMax" classname="AgainCommissionKtTest" time="0.008"/>
+  <testcase name="calculation_MastercardMaestroCommissionMin" classname="AgainCommissionKtTest" time="0.0"/>
+  <testcase name="check_CardOKTransfer" classname="AgainCommissionKtTest" time="0.0"/>
+  <testcase name="calculation_MastercardMaestroCommissionFree" classname="AgainCommissionKtTest" time="0.0"/>
+  <testcase name="check_VKPayOKTransferLimitOfDay" classname="AgainCommissionKtTest" time="0.0"/>
+  <testcase name="check_CardNotTransferLimitOnDay" classname="AgainCommissionKtTest" time="0.0"/>
+  <testcase name="check_VKPayNotTransferLimitOnDay" classname="AgainCommissionKtTest" time="0.001"/>
+  <testcase name="calculation_VisaMirCommissionMax" classname="AgainCommissionKtTest" time="0.001"/>
+  <testcase name="calculation_VisaMirCommissionMin" classname="AgainCommissionKtTest" time="0.0"/>
+  <testcase name="check_CardNotTransferLimitOnMounth" classname="AgainCommissionKtTest" time="0.0"/>
+  <testcase name="check_VKPayNotTransferLimitOnMounth" classname="AgainCommissionKtTest" time="0.0"/>
+  <testcase name="calculation_VKPayCommissionFree" classname="AgainCommissionKtTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
