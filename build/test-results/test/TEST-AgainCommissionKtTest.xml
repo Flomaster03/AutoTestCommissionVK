@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AgainCommissionKtTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-04-04T15:15:00" hostname="DESKTOP-TPQFU3E" time="0.05">
+<testsuite name="AgainCommissionKtTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-04-12T16:08:26" hostname="DESKTOP-TPQFU3E" time="0.229">
   <properties/>
-  <testcase name="check_CardNotTransferLimitOnDayError" classname="AgainCommissionKtTest" time="0.05">
+  <testcase name="check_CardNotTransferLimitOnDayError" classname="AgainCommissionKtTest" time="0.229">
     <failure message="java.lang.AssertionError: expected:&lt;true&gt; but was:&lt;false&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;true&gt; but was:&lt;false&gt;
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)

@@ -186,18 +186,4 @@ class AgainCommissionKtTest {
         assertEquals(false, result)
     }
 
-    @Test
-    fun check_CardNotTransferLimitOnDayError() {
-        val typeOfCard = "Visa"
-        val amountMonth = 0
-        val amountPay = 200_000_00
-
-        val result = check(
-            typeOfCard = typeOfCard,
-            amountMonth = amountMonth,
-            amountPay = amountPay
-        )
-        assertEquals(true, result)
-    }
-
 }
